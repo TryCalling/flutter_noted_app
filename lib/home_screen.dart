@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_noted/fragment/noted_fragment.dart';
 import 'package:flutter_app_noted/fragment/home_fragment.dart';
-import 'package:flutter_app_noted/fragment/friends_fragment.dart';
 import 'package:flutter_app_noted/fragment/menu_fragment.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeFragment(),
-    FriendsFragment(),
+    NotedFragment(),
     MenuFragment(),
   ];
 
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(

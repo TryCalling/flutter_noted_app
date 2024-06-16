@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FriendsFragment extends StatelessWidget {
-  const FriendsFragment({super.key});
+class NotedFragment extends StatelessWidget {
+  const NotedFragment({super.key});
 
   @override
   Widget build(BuildContext context) {

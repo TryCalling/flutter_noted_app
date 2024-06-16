@@ -5,22 +5,22 @@ class HomeFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> posts = ["Post 1", "Post 2", "Post 3"];
+    final List<String> tasks = ["Task 1: Buy groceries", "Task 2: Complete Flutter app", "Task 3: Call John"];
 
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          _buildPostCreationSection(),
+          _buildTaskCreationSection(),
           const Divider(),
-          _buildPostsList(posts),
+          _buildTasksList(tasks),
         ],
       ),
     );
   }
 
-  Widget _buildPostCreationSection() {
+  Widget _buildTaskCreationSection() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(12.0),
       child: Row(
         children: [
           const CircleAvatar(
@@ -32,82 +32,62 @@ class HomeFragment extends StatelessWidget {
           Expanded(
             child: TextField(
               decoration: InputDecoration(
-                hintText: "What's on your mind?",
+                hintText: "Search your task noted...?",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.photo),
-            onPressed: () {},
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              // Logic for adding a new task
+            },
           ),
         ],
       ),
     );
   }
 
-  Widget _buildPostsList(List<String> posts) {
+  Widget _buildTasksList(List<String> tasks) {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: posts.length,
+      itemCount: tasks.length,
       itemBuilder: (context, index) {
-        return _buildPostItem(posts[index]);
+        return _buildTaskItem(tasks[index]);
       },
     );
   }
 
-  Widget _buildPostItem(String post) {
+  Widget _buildTaskItem(String task) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(6.0),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(
                 children: [
-                  const CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      'https://via.placeholder.com/150',
+                  const SizedBox(width: 16.0),
+                  Expanded(
+                    child: Text(
+                      task,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const SizedBox(width: 8.0),
-                  const Text(
-                    'User Name',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  const Spacer(),
                   IconButton(
                     icon: const Icon(Icons.more_vert),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8.0),
-              Text(post),
-              const SizedBox(height: 8.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.thumb_up_alt_outlined),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.comment_outlined),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.share_outlined),
-                    onPressed: () {},
+                    onPressed: () {
+                      // Logic for task options
+                    },
                   ),
                 ],
               ),
